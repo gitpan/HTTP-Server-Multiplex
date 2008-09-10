@@ -1,0 +1,7 @@
+
+=== version history of HTTP::Server::Multiplex
+
+All changes are made by Mark Overmeer, unless explicitly stated differently.
+
+version 0.10: Wed Sep 10 22:59:48 CEST 2008
+	- initial release
