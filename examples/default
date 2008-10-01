@@ -92,7 +92,7 @@ $daemon->run;
 sub bigread($$$)
 {   my ($conn, $req, $uri) = @_;
     my $bigfile = '... some big file to load ...';
-    $conn->readFile($bigfile, sub
+    $conn->load($bigfile, sub
       { my $x = shift;
         $conn->sendStatus($req, RC_ACCEPTED, 'read '.length($$x). ' bytes');
       } );
@@ -102,7 +102,7 @@ sub bigwrite($$$)
 {   my ($conn, $req, $uri) = @_;
     my $bigwr = '... big file to save... ';
     my $x     = 'a' x 35000;
-    $conn->writeFile($bigwr, $x, sub
+    $conn->save($bigwr, $x, sub
       { $conn->sendStatus($req, RC_ACCEPTED, 'written '.length($x).' bytes');
       } );
 }

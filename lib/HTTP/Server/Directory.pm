@@ -4,7 +4,7 @@
 # Pod stripped from pm file by OODoc 1.05.
 package HTTP::Server::Directory;
 use vars '$VERSION';
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 use warnings;
 use strict;

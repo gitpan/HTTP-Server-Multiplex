@@ -7,7 +7,7 @@ use warnings;
 
 package HTTP::Server::Connection;
 use vars '$VERSION';
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 
 use HTTP::Server::Multiplex;
@@ -16,7 +16,7 @@ use HTTP::Server::Session;
 use HTTP::Request    ();
 use HTTP::Response   ();
 use HTTP::Status;
-use HTTP::Date       qw(time2str);
+use HTTP::Date       qw(time2str str2time);
 use URI              ();
 use LWP::MediaTypes  qw(guess_media_type);
 use Fcntl            qw(O_RDONLY);
@@ -551,7 +551,7 @@ sub async
 }
 
 
-sub readFile($$)
+sub load($$)
 {   my ($self, $file, $cb) = @_;
     my ($f, $callback);
 
@@ -575,8 +575,10 @@ sub readFile($$)
     undef;
 }
 
+sub readFile(@) {die "readFile() renamed to load() in 0.11"}
 
-sub writeFile($$$)
+
+sub save($$$)
 {   my ($self, $file, $data, $cb) = @_;
     my ($f, $callback);
     my $mux = $self->{HSC_mux};
@@ -603,6 +605,7 @@ sub writeFile($$$)
     $mux->write($f, ref $data eq 'SCALAR' ? $$data : $data);
     undef;
 }
+sub writeFile(@) {die "writeFile() renamed to save() in 0.11"}
 
 #------------------------
 
@@ -612,7 +615,7 @@ sub writeFile($$$)
 
 package _PUMP::PROXY;
 use vars '$VERSION';
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 
 # $class->new($outfh,$callback)
@@ -631,7 +634,7 @@ sub mux_close() { shift->[1]->() }
 
 package _PUMP::READFILE;
 use vars '$VERSION';
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 
 # $class->new($callback)
@@ -647,7 +650,7 @@ sub mux_eof($$$$)
 
 package _PUMP::WRITEFILE;
 use vars '$VERSION';
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 
 # $class->new($callback)

@@ -266,8 +266,8 @@ example: rewrite URI
 
 =head1 SEE ALSO
 
-This module is part of HTTP-Server-Multiplex distribution version 0.10,
-built on September 10, 2008. Website: F<http://perl.overmeer.net/httpd-multiplex/>
+This module is part of HTTP-Server-Multiplex distribution version 0.11,
+built on October 01, 2008. Website: F<http://perl.overmeer.net/httpd-multiplex/>
 
 =head1 LICENSE
 

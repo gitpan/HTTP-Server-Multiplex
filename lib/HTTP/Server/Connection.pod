@@ -100,7 +100,7 @@ default regexp (on UNIX) is C<< qr/^[^.]/ >>
 
 =back
 
-$obj-E<gt>B<readFile>(FILENAME|FILEHANDLE, CALLBACK)
+$obj-E<gt>B<load>(FILENAME|FILEHANDLE, CALLBACK)
 
 =over 4
 
@@ -108,6 +108,21 @@ Asynchronously read the FILE via the multiplexer, not blocking the
 activities for the other clients.  After everything has been read,
 the CALLBACK will be called with a reference to the data read, or undef
 on failure.  The CALLBACK must continue the work to end in a response.
+
+=back
+
+$obj-E<gt>B<save>(FILE, DATA, CALLBACK)
+
+=over 4
+
+Asynchronously write the FILE via the multiplexer, not blocking the
+activities for the other clients.  The FILE is specified either as file
+name or file handle.  The DATA is a string or SCALAR-ref (the latter
+usually providing a better performance).
+
+After everything has been written, the user CALLBACK will be called.
+The CALLBACK must continue the work to end in a response, because writing
+is just an intermediate activity.
 
 =back
 
@@ -149,21 +164,6 @@ $obj-E<gt>B<sendStatus>(REQUEST, STATUS, [TEXT])
 
 =back
 
-$obj-E<gt>B<writeFile>(FILE, DATA, CALLBACK)
-
-=over 4
-
-Asynchronously write the FILE via the multiplexer, not blocking the
-activities for the other clients.  The FILE is specified either as file
-name or file handle.  The DATA is a string or SCALAR-ref (the latter
-usually providing a better performance).
-
-After everything has been written, the user CALLBACK will be called.
-The CALLBACK must continue the work to end in a response, because writing
-is just an intermediate activity.
-
-=back
-
 =head1 DETAILS
 
 =head2 Return of directoryList
@@ -198,8 +198,8 @@ as produced by the "ls -l" command.
 
 =head1 SEE ALSO
 
-This module is part of HTTP-Server-Multiplex distribution version 0.10,
-built on September 10, 2008. Website: F<http://perl.overmeer.net/httpd-multiplex/>
+This module is part of HTTP-Server-Multiplex distribution version 0.11,
+built on October 01, 2008. Website: F<http://perl.overmeer.net/httpd-multiplex/>
 
 =head1 LICENSE
 

@@ -1,10 +1,10 @@
 use ExtUtils::MakeMaker;
 
-require 5.005;
+require 5.008;
 
 WriteMakefile
   ( NAME      => 'HTTP::Server::Multiplex'
-  , VERSION   => '0.10'
+  , VERSION   => '0.11'
   , PREREQ_PM =>
     { IO::Multiplex   => 1.09
     , Net::CIDR       => 0.11

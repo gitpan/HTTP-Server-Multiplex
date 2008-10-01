@@ -7,7 +7,7 @@ use warnings;
 
 package HTTP::Server::Multiplex;
 use vars '$VERSION';
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 
 use HTTP::Server::VirtualHost;

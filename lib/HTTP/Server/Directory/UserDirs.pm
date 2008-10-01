@@ -7,7 +7,7 @@ use strict;
 
 package HTTP::Server::Directory::UserDirs;
 use vars '$VERSION';
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 use base 'HTTP::Server::Directory';
 

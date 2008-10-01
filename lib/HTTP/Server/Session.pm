@@ -7,7 +7,7 @@ use strict;
 
 package HTTP::Server::Session;
 use vars '$VERSION';
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 
 use Log::Report 'httpd-multiplex', syntax => 'SHORT';
